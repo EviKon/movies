@@ -1,5 +1,5 @@
 class MoviesController < ApplicationController
-  before_action :get_movie, only: [:show, :edit, :destroy]
+  before_action :get_movie, only: [:show, :edit, :update, :destroy]
 
   def index
     @movie = Movie.all
@@ -29,7 +29,7 @@ class MoviesController < ApplicationController
 
   def update
     if @movie.update(movie_params)
-      flash[:success] = 'Movie was created successfully'
+      flash[:success] = 'Movie was updated successfully'
 
       redirect_to movie_path(@movie)
     else

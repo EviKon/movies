@@ -4,4 +4,5 @@ Rails.application.routes.draw do
   get 'pages/home', to: 'page#home'
 
   resources :movies
+  resources :categories, except: [:destroy]
 end
