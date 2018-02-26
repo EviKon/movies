@@ -15,7 +15,14 @@
           <%= f.label :description %>
         </div>
         <div class="col-md-8">
-          <%= f.text_area :description, rows: 10, class:"form-control", placeholder: "Same something about the movie" %>
+          <%= f.text_area :description, rows: 10, class:"form-control", placeholder: "Say something about the movie" %>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="col-md-offset-2 col-md-8">
+          <%=f.collection_check_boxes :category_ids, Category.all, :id, :name do |cb|%>
+            <% cb.label(class: "checkbox-inline input_checkbox") {cb.check_box(class: "checkbox") + cb.text} %>
+          <% end %>
         </div>
       </div>
       <div class="form-group">
